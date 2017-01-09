@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -8,29 +7,36 @@ public class DiceDemo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        String wantToRollAgain;
+
+        System.out.println("Welcome to the dice rolling app!");
+
+        do {
+            rollingTheDice(sc);
+            System.out.println("Do you want to roll again?");
+            wantToRollAgain = sc.next();
+        } while (wantToRollAgain.equalsIgnoreCase("yes"));
+    }
+
+    public static void rollingTheDice(Scanner sc) {
         int numberOfSides;
-
-        System.out.println("Enter the number of sides on the dice you want: ");
+        System.out.println("How many sides should the first die have?");
         numberOfSides = sc.nextInt();
+        Die dieOne = new Die(numberOfSides);
 
-        System.out.println("Rolling the dice...\n");
+        System.out.println("How many sides should the second die have?");
+        numberOfSides = sc.nextInt();
+        Die dieTwo = new Die(numberOfSides);
 
+        System.out.println("Rolling...");
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-
-        int numberOne = randomDice(numberOfSides);
-        int numberTwo = randomDice(numberOfSides);
-        System.out.println("The first die rolled a " + numberOne + " " + "The second die rolled a  " + numberTwo);
-        System.out.println("The result is " + (numberOne + numberTwo));
-    }
-
-    public static int randomDice(int numberOfSides) {
-        Random rand = new Random();
-        int n = rand.nextInt(numberOfSides) + 1;
-        return n;
+        System.out.println("The first die is " + dieOne.roll() + ".");
+        System.out.println("The second die is " + dieTwo.roll() + ".");
+        System.out.println("The total is " + (dieOne.currentValue + dieTwo.currentValue) + ".");
     }
 }
