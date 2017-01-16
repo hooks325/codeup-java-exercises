@@ -26,6 +26,34 @@ public class Validator {
 
             return userInt;
         }
+        public String getString(String prompt) {
+            System.out.print(prompt);
+            String userString;
+
+            try {
+                userString = scan.next();
+            } catch(IllegalStateException e) {
+                scan.next();
+                System.out.println("");
+                return getString(prompt);
+            }
+
+            return userString;
+        }
+        public double getDouble(String prompt) {
+            System.out.print(prompt);
+            double userDouble;
+
+            try {
+                userDouble = scan.nextDouble();
+            } catch(InputMismatchException e) {
+                scan.next();
+                System.out.println("Input must be an integer");
+                return getInt(prompt);
+            }
+
+            return userDouble;
+        }
 
         public int getIntWithinRange(String prompt, int min, int max) {
             int userInt = getInt(prompt);
