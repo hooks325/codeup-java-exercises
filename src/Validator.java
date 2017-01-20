@@ -13,7 +13,7 @@ public class Validator {
         }
 
         public int getInt(String prompt) {
-            System.out.print(prompt);
+            System.out.println(prompt);
             int userInt;
 
             try {
@@ -40,6 +40,7 @@ public class Validator {
 
             return userString;
         }
+
         public double getDouble(String prompt) {
             System.out.print(prompt);
             double userDouble;

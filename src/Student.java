@@ -8,6 +8,9 @@ public class Student implements Comparable <Student>{
     private String firstName, lastName;
     private int score;
 
+    public String firstName() { return firstName; }
+    public String lastName()  { return lastName;  }
+    public int score(){ return score; }
 
     public Student(String firstName, String lastName) {
         if (firstName == null || lastName == null)
@@ -15,10 +18,6 @@ public class Student implements Comparable <Student>{
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
-    public String firstName() { return firstName; }
-    public String lastName()  { return lastName;  }
-    public int score(){ return score; }
 
     public boolean equals(Object o) {
         if (!(o instanceof Student))

@@ -26,17 +26,10 @@ public class StudentScores {
         } while (anotherStudent.equalsIgnoreCase("yes"));
 
 
-        System.out.println(studentList);
+        System.out.println("\n" + studentList + "\n");
 
         Collections.sort(studentList);
 
         System.out.println(studentList);
-
-
-
-
-
-
-
     }
 }
